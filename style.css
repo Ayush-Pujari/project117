@@ -1,0 +1,19 @@
+#head1 {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    background-color: aqua;
+
+}
+#span_2_timer{
+    margin-left: 1000px;
+    font-size: 30px;
+}
+#span_1_score{
+    font-size: 30px;
+}
+p{
+    font-size: 20px;
+    font-family: monospace;
+}
+
