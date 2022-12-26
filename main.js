@@ -23,16 +23,7 @@ function updateCanvas() {
     sketch = quick_draw_data_set[random_no];
     document.getElementById("p3").innerHTML="Sketch to being Drawn "+sketch;
 }
-function checkSketch() {
-    timer_counter++;
-     document.getElementById('time').innerHTML = 'Timer: ' + timer_counter;
-      console.log(timer_counter)
-       if (timer_counter > 400) { timer_counter = 0; timer_check = "completed" }
-        if (timer_check == "completed" || answer_holder == "set") {
-        timer_check = ""; answer_holder = ""
-        updateCanvas();
-        }
-    }
+
     function clearCanvas() {
         background("white");
 
@@ -48,6 +39,18 @@ function checkSketch() {
         if (mouseIsPressed) {
             line(pmouseX, pmouseY, mouseX, mouseY);
         }
+
+
+        function checkSketch() {
+            timer_counter++;
+             document.getElementById('time').innerHTML = 'Timer: ' + timer_counter;
+              console.log(timer_counter)
+               if (timer_counter > 400) { timer_counter = 0; timer_check = "completed" }
+                if (timer_check == "completed" || answer_holder == "set") {
+                timer_check = ""; answer_holder = ""
+                updateCanvas();
+                }
+            }
         
     }
     function classifyCanvas() {
@@ -59,7 +62,7 @@ function checkSketch() {
         } else {
             console.log(results);
             document.getElementById("lable").innerHTML = "Label : " + results[0].label;
-            document.getElementById("confidence").innerHTML = "Confidence : " + Math.floor(results[0].confidence * 100);
+            document.getElementById("Confidence").innerHTML = "Confidence : " + Math.floor(results[0].confidence * 100);
             utterThis = new SpeechSynthesisUtterance("The object drawn is " + results[0].label);
             synth.speak(utterThis);
         }
